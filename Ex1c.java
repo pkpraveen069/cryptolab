@@ -1,13 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
+
 
 package com.mycompany.ex1c;
 
-/**
- *
- * @author sibis
- */
+
 
 
 
@@ -28,7 +23,7 @@ public class Ex1c {
                 char encryptedChar = (char) ((currentChar - base + offset) % 26 + base);
                 ciphertext.append(Character.toUpperCase(encryptedChar));
             } else {
-                // Non-alphabetic characters remain unchanged
+           
                 ciphertext.append(currentChar);
             }
         }
@@ -46,11 +41,11 @@ public class Ex1c {
             if (Character.isLetter(currentChar)) {
                 char base = Character.isUpperCase(currentChar) ? 'A' : 'a';
                 int offset = Character.toUpperCase(key.charAt(i % keyLength)) - 'A';
-                // Ensure the result is positive by adding 26
+             
                 char decryptedChar = (char) ((currentChar - base - offset + 26) % 26 + base);
                 decryptedText.append(decryptedChar);
             } else {
-                // Non-alphabetic characters remain unchanged
+              
                 decryptedText.append(currentChar);
             }
         }
@@ -74,7 +69,7 @@ public class Ex1c {
         System.out.print("Enter the text: ");
         String text = scanner.nextLine();
 
-        // Check if the input text contains only alphabetic characters
+       
         if (!text.matches("[a-zA-Z]+")) {
             System.out.println("Sorry, input must be a word.");
             scanner.close();

@@ -1,11 +1,4 @@
 
-
-package com.mycompany.ex1c;
-
-
-
-
-
 import java.util.Scanner;
 
 public class Ex1c {

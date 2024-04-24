@@ -1,0 +1,31 @@
+from mininet.net import Mininet
+from mininet.util import dumpNodeConnections
+from mininet.topo import Topo
+class MyFirstTopo( Topo ):
+ "simple topology example."
+ def __init__( self ):
+ "create custom topo."
+ #Initialize topology
+ Topo.__init__( self )
+ #Add hosys and swtiches
+ h1 = self.addHost( 'h1' )
+ h2 = self.addHost( 'h2' )
+ h3 = self.addHost( 'h3' )
+ h4 = self.addHost( 'h4' )
+ ls = self.addSwitch( 's1' )
+ rs = self.addSwitch( 's2' )
+ #add links
+ self.addLink( h1, ls )
+ self.addLink( h2, ls )
+ self.addLink( ls, rs )
+ self.addLink( rs, h3 )
+ self.addLink( rs, h4 )
+def execCommand():
+ first = MyFirstTopo()
+ net = Mininet( first )
+ net.start()
+ dumpNodeConnections( net.hosts )
+ net.pingAll()
+ net.stop()
+if __name__ == '__main__':
+ execCommand()
